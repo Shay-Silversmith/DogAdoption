@@ -1,0 +1,46 @@
+.adopt-card {
+    background-color: white;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+#dog-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center 25%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+#dog-name {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#adoption-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#adoption-form label {
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+#adoption-form input {
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+#adoption-form button {
+    align-self: center;
+}
