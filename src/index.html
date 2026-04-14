@@ -9,45 +9,54 @@
 </head>
 <body>
 <main class="container">
-    <h1>Dogs for Adoption</h1>
+    <h1>🏠 🐶 Dogs for Adoption 🐶 🏠</h1>
 
-    <div class="dogs-container">
-        <div class="dog-card">
-            <img src="" alt="Dog image">
-            <h2></h2>
-            <a href="">More Info</a>
-        </div>
+    <div style="text-align: center; margin-bottom: 30px;">
+        <button id="open-matchmaker-btn" style="background-color: #ff6b6b; font-size: 18px; padding: 12px 24px;">🐾 Find My Perfect Match!</button>
+    </div>
 
-        <div class="dog-card">
-            <img src="" alt="Dog image">
-            <h2></h2>
-            <a href="">More Info</a>
-        </div>
-
-        <div class="dog-card">
-            <img src="" alt="Dog image">
-            <h2></h2>
-            <a href="">More Info</a>
-        </div>
-
-        <div class="dog-card">
-            <img src="" alt="Dog image">
-            <h2></h2>
-            <a href="">More Info</a>
-        </div>
-
-        <div class="dog-card">
-            <img src="" alt="Dog image">
-            <h2></h2>
-            <a href="">More Info</a>
-        </div>
-
-        <div class="dog-card">
-            <img src="" alt="Dog image">
-            <h2></h2>
-            <a href="">More Info</a>
+    <div id="matchmaker-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Dog Matchmaker</h2>
+            <p>Answer quick questions to see match percentages!</p>
+            <form id="matchmaker-form">
+                <label for="q-age">What age do you prefer?</label>
+                <select id="q-age">
+                    <option value="any">No preference</option>
+                    <option value="young">Young</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+                <label for="q-pets">Other pets at home?</label>
+                <select id="q-pets">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <label for="q-energy">Energy level?</label>
+                <select id="q-energy">
+                    <option value="any">Any</option>
+                    <option value="calm">Calm</option>
+                    <option value="energetic">Energetic</option>
+                </select>
+                <button type="submit" style="width: 100%; margin-top: 20px;">Calculate Match</button>
+            </form>
         </div>
     </div>
+
+    <div class="dogs-container">
+        <div class="dog-card"><img><h2></h2><a>More Info</a></div>
+        <div class="dog-card"><img><h2></h2><a>More Info</a></div>
+        <div class="dog-card"><img><h2></h2><a>More Info</a></div>
+        <div class="dog-card"><img><h2></h2><a>More Info</a></div>
+        <div class="dog-card"><img><h2></h2><a>More Info</a></div>
+        <div class="dog-card"><img><h2></h2><a>More Info</a></div>
+    </div>
+
+    <section id="favorites-section" class="favorites-section" style="display:none;">
+        <h3>⭐ My Favorite Dogs</h3>
+        <div id="fav-list" class="fav-list"></div>
+    </section>
 </main>
 
 <script src="script.js"></script>

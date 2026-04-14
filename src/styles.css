@@ -1,3 +1,4 @@
+/* --- Base Styles --- */
 * {
     margin: 0;
     padding: 0;
@@ -5,52 +6,165 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f7fa;
     color: #222;
+    line-height: 1.6;
+    padding-top: 45px; /* Leave space for the fixed progress bar */
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 95%;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
+/* Fix: Centering the main titles */
 h1 {
-    text-align: center;
+    text-align: center !important;
     margin-bottom: 30px;
+    color: #333;
+    width: 100%;
 }
 
-a {
+/* --- Common Components --- */
+a, button {
     text-decoration: none;
     color: white;
     background-color: #2d89ef;
-    padding: 10px 16px;
+    padding: 10px 18px;
     border-radius: 8px;
     display: inline-block;
-    transition: 0.2s;
-}
-
-a:hover {
-    background-color: #1b6fc9;
-}
-
-button {
+    transition: all 0.3s ease;
+    font-weight: 600;
     border: none;
-    background-color: #2d89ef;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 8px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
-button:hover {
+a:hover, button:hover {
     background-color: #1b6fc9;
+    transform: translateY(-2px);
 }
 
 img {
     max-width: 100%;
     display: block;
+    object-fit: cover;
+}
+
+/* --- Gamification: Animated Dog Progress Bar --- */
+#progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 45px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+#progress-bar {
+    height: 100%;
+    background-color: #a2d2ff;
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.5s ease;
+    position: relative;
+}
+
+#progress-bar.completed {
+    background-color: #4CAF50 !important;
+}
+
+#progress-dog {
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    transition: right 0.8s ease;
+}
+
+#progress-bar.completed #progress-dog {
+    animation: dogJump 0.5s infinite alternate;
+}
+
+@keyframes dogJump {
+    from { transform: translateY(-50%); }
+    to { transform: translateY(-80%); }
+}
+
+#progress-person {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+}
+
+#progress-text {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    line-height: 45px;
+}
+
+/* --- Gamification: RPG Dog Stats --- */
+.stats-container {
+    margin-top: 25px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.stat-row { margin-bottom: 15px; }
+.stat-label { font-weight: bold; font-size: 14px; display: block; margin-bottom: 5px; }
+.stat-bar-bg { background: #eee; height: 14px; border-radius: 7px; overflow: hidden; }
+.stat-bar-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 1.5s ease-out, background-color 0.3s ease;
+}
+
+/* --- Gamification: Pet Me & Hearts --- */
+.pet-actions { text-align: center; margin-top: 20px; position: relative; }
+.pet-btn { background-color: #ff8787; font-size: 18px; }
+.heart-animation {
+    position: absolute; color: #ff6b6b; font-size: 24px;
+    pointer-events: none; animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -100px) scale(1.6); opacity: 0; }
+}
+
+/* --- Gamification: Favorites --- */
+.fav-star {
+    position: absolute; top: 10px; right: 10px;
+    font-size: 32px; cursor: pointer; color: #ccc;
+    text-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+.fav-star.active { color: #ffd700; }
+
+.favorites-section {
+    margin-top: 60px; padding: 30px; background: #fff;
+    border-radius: 20px; border: 3px dashed #2d89ef;
+}
+.fav-list { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+.fav-item { text-align: center; width: 90px; }
+.fav-item img { width: 70px; height: 70px; border-radius: 50%; border: 3px solid #2d89ef; margin-bottom: 8px; }
+
+/* --- Badges & Pop-ups --- */
+.super-adopter-badge { background-color: #ffd700; color: #8b6508; text-align: center; padding: 15px; border-radius: 12px; margin-bottom: 30px; cursor: pointer; }
+.progress-celebration {
+    position: fixed; top: 60px; left: 50%; transform: translateX(-50%);
+    background-color: #FFD700; padding: 20px 40px; border-radius: 50px;
+    z-index: 2001; text-align: center; border: 3px solid white; cursor: pointer;
 }

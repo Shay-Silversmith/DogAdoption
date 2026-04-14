@@ -1,7 +1,13 @@
+/**
+ * Final step of the journey [cite: 103]
+ */
 document.addEventListener("DOMContentLoaded", async function () {
     try {
         const pageId = getDogIdFromURL();
         const apiId = pageId + 1;
+
+        // Journey Trigger: Final completion reached!
+        trackProgress('completedAdoption');
 
         const dog = await fetchDogById(apiId);
 
